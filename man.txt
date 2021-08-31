@@ -1,0 +1,9 @@
+run script
+
+turn off
+
+run in elevated PS: set-vm -EnhancedSessionTransportType HvSocket
+
+reboot
+
+ENSURE AUTOLOGIN IS OFF
