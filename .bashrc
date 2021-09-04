@@ -91,11 +91,16 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias cls='clear'
 alias update='sudo apt-get update && sudo apt-get upgrade'
 alias clean='sudo apt-get clean; sudo apt-get autoremove'
-alias editbash='vim ./.bashrc && . ./.bashrc'
+alias editbash='vim ~/.bashrc && . ~/.bashrc'
+alias editvim='vim ~/.vimrc'
 
+
+#functions for tar
+
+function mktar { tar -czvf "$1.tar.gz" "$1"; }
+function untar { tar -xvf "$1"; }
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -121,5 +126,27 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export CDPATH=$CDPATH:/mnt/
-export PATH=$PATH:/home/user/.local/bin
+# Paths for LaTeX
+export TEXINPUTS=:${HOME}/texmf/latex/
+export BIBINPUTS=:${HOME}/texmf/bibs/
+export LATEX=:${HOME}/texmf/latex/
+
+# Paths for searching
+export PATH=$HOME/texmf/latex/style//:$PATH
+
+# Path for polyml
+declare -x LD_LIBRARY_PATH=/usr/local/lib:$HOME/lib
+export LD_LIBRARY_PATH
+
+# Paths for HOL
+HOLHOME=/usr/local/share/HOL
+HOLDIR=/usr/local/share/HOL
+export PATH=${PATH}:${HOLHOME}/bin
+
+# Default editor is emacs
+EDITOR=vim
+export EDITOR
+
+# Import colorscheme from 'wal'
+(cat ~/.cache/wal/sequences &)
+export PATH="~/.local/bin:$PATH"
