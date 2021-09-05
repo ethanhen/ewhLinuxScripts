@@ -148,5 +148,6 @@ EDITOR=vim
 export EDITOR
 
 # Import colorscheme from 'wal'
+wal --theme base16-nord
 (cat ~/.cache/wal/sequences &)
 export PATH="~/.local/bin:$PATH"
