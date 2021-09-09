@@ -91,6 +91,8 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+# ethan aliases
 alias update='sudo apt-get update && sudo apt-get upgrade'
 alias clean='sudo apt-get clean; sudo apt-get autoremove'
 alias cls='clear'
@@ -99,7 +101,6 @@ alias editvim='vim ~/.vimrc'
 
 
 #functions for tar
-
 function mktar { tar -czvf "$1.tar.gz" "$1"; }
 function untar { tar -xvf "$1"; }
 
@@ -127,28 +128,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Paths for LaTeX
-export TEXINPUTS=:${HOME}/texmf/latex/
-export BIBINPUTS=:${HOME}/texmf/bibs/
-export LATEX=:${HOME}/texmf/latex/
-
-# Paths for searching
-export PATH=$HOME/texmf/latex/style//:$PATH
-
-# Path for polyml
-declare -x LD_LIBRARY_PATH=/usr/local/lib:$HOME/lib
-export LD_LIBRARY_PATH
-
-# Paths for HOL
-HOLHOME=/usr/local/share/HOL
-HOLDIR=/usr/local/share/HOL
-export PATH=${PATH}:${HOLHOME}/bin
-
-# Default editor is emacs
-EDITOR=vim
-export EDITOR
-
 # Import colorscheme from 'wal'
-wal --theme base16-nord
 (cat ~/.cache/wal/sequences &)
 export PATH="~/.local/bin:$PATH"
+
+wal --theme base16-nord > /dev/null 2>&1
