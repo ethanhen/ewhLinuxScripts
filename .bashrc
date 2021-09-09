@@ -93,6 +93,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias update='sudo apt-get update && sudo apt-get upgrade'
 alias clean='sudo apt-get clean; sudo apt-get autoremove'
+alias cls='clear'
 alias editbash='vim ~/.bashrc && . ~/.bashrc'
 alias editvim='vim ~/.vimrc'
 
