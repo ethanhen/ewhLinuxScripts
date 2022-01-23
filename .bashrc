@@ -87,19 +87,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# ethan aliases
-alias update='sudo apt-get update && sudo apt-get upgrade'
-alias clean='sudo apt-get clean; sudo apt-get autoremove'
-alias cls='clear'
-alias editbash='vim ~/.bashrc && . ~/.bashrc'
-alias editvim='vim ~/.vimrc'
-
-
 #functions for tar
 function mktar { tar -czvf "$1.tar.gz" "$1"; }
 function untar { tar -xvf "$1"; }
@@ -128,8 +115,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Import colorscheme from 'wal'
-(cat ~/.cache/wal/sequences &)
-export PATH="~/.local/bin:$PATH"
-
-wal --theme base16-nord > /dev/null 2>&1
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export NODE_OPTIONS=--openssl-legacy-provider
